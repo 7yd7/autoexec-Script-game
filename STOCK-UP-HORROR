@@ -4,6 +4,17 @@ local placeId = game.PlaceId
 
 if placeId == 16192201352 then -- اللوبي
 
+
+-- رساله
+
+game.StarterGui:SetCore("SendNotification",  {
+    Title = "تم حصول قيم باس Bigger Party";
+    Text = "By : 7yd7";
+    Icon = "";
+    Duration = 5;
+    Callback = NotificationBindable;
+   })
+
     
 -- ضغط علي gui سكربت تحديد لاعبين 8
 
