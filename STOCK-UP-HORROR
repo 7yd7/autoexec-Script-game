@@ -2,7 +2,7 @@
 workspace.FallenPartsDestroyHeight = -50000
 local placeId = game.PlaceId
 
-if placeId == 16192201352 then -- اللوبي
+if placeId == 16008839781 then -- اللوبي
 
 
 -- رساله
