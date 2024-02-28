@@ -1,0 +1,114 @@
+
+workspace.FallenPartsDestroyHeight = -50000
+local placeId = game.PlaceId
+
+if placeId == 16192201352 then -- اللوبي
+
+    
+-- ضغط علي gui سكربت تحديد لاعبين 8
+
+local player = game.Players.LocalPlayer
+local maxplayers8 = game:GetService("Players").LocalPlayer.PlayerGui.Gui.Party.Main.settings.maxplayers["2"]
+
+maxplayers8.MouseButton1Click:Connect(function()
+-- سكربت تحديد لاعبين 8
+local ohTable1 = {
+	["Map"] = 1,
+	["Mode"] = 1,
+	["FriendsOnly"] = false,
+	["MaxPlayers"] = 8
+}
+
+game:GetService("ReplicatedStorage").Events.PartyLeader:FireServer(ohTable1)
+--
+end)
+
+-- ضغط علي gui سكربت تحديد لاعبين 4
+
+local player = game.Players.LocalPlayer
+local maxplayers4 = game:GetService("Players").LocalPlayer.PlayerGui.Gui.Party.Main.settings.maxplayers["1"]
+
+maxplayers4.MouseButton1Click:Connect(function()
+-- سكربت تحديد لاعبين 4
+local ohTable1 = {
+	["Map"] = 1,
+	["Mode"] = 1,
+	["FriendsOnly"] = false,
+	["MaxPlayers"] = 4
+}
+
+game:GetService("ReplicatedStorage").Events.PartyLeader:FireServer(ohTable1)
+--
+end)
+
+
+elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 then
+
+local boxName = "box"
+local boxes = workspace.Interactables.Boxes
+
+if boxes:FindFirstChild(boxName) then -- اذا كان يوجد Box يتم تفعيله
+
+workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Boxes.box.CFrame
+wait(.2)
+    fireproximityprompt(workspace.Interactables.Boxes.box.ProximityPrompt)
+-- تحويل البوكس 0 الى عدد لا محدود
+wait(.2)
+local shelves = workspace.Interactables.Shelves:GetChildren()
+if #shelves > 0 then
+    local randomShelf = shelves[math.random(1, #shelves)]
+    local shelfName = randomShelf.Name
+local ohInstance1 = workspace.Interactables.Shelves[shelfName]
+local ohNumber2 = 9999999
+local ohNumber3 = 0
+
+game:GetService("ReplicatedStorage").Events.Stocking:FireServer(ohInstance1, ohNumber2, ohNumber3)
+else
+end
+--
+workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Extraction.Area.CFrame
+
+wait(.3)
+-- رمي الغرض
+game:GetService("ReplicatedStorage").Events.DropTool:FireServer()
+
+wait(3)
+-- اعاده تشغيل لعبه او بلي اقين
+game:GetService("ReplicatedStorage").Events.PlayAgain:FireServer()
+else -- اذا لا يوجد Box يتم تفعيله 
+
+workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.SpawnBoxes.sign.spawn.CFrame
+wait(.2)
+   fireproximityprompt(workspace.Interactables.SpawnBoxes.sign.signpart.ProximityPrompt)
+wait(.2)
+workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Boxes.box.CFrame
+wait(.2)
+    fireproximityprompt(workspace.Interactables.Boxes.box.ProximityPrompt)
+-- تحويل البوكس 0 الى عدد لا محدود
+wait(.2)
+local shelves = workspace.Interactables.Shelves:GetChildren()
+if #shelves > 0 then
+    local randomShelf = shelves[math.random(1, #shelves)]
+    local shelfName = randomShelf.Name
+local ohInstance1 = workspace.Interactables.Shelves[shelfName]
+local ohNumber2 = 9999999
+local ohNumber3 = 0
+
+game:GetService("ReplicatedStorage").Events.Stocking:FireServer(ohInstance1, ohNumber2, ohNumber3)
+else
+end
+--
+workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Extraction.Area.CFrame
+
+wait(.3)
+-- رمي الغرض
+game:GetService("ReplicatedStorage").Events.DropTool:FireServer()
+wait(3)
+-- اعاده تشغيل لعبه او بلي اقين
+game:GetService("ReplicatedStorage").Events.PlayAgain:FireServer()
+end
+
+else
+
+-- test
+   end
