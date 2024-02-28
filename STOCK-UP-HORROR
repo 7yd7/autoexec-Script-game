@@ -1,4 +1,13 @@
-
+--[[
+-- Lobby
+getgenv().MaxPlayers = 8 -- تعديل رقم عدد لاعبين يدخلون قيم (حاليا نفس قيم باس)
+-- AutoFarm
+getgenv().AutoFarm = true -- تشغيل اوتو فارم اكتب true -- ايقاف اوتو افارم false
+getgenv().runFarm = 5.5 -- سرعه تشغيل سكربت ل اوتو فارم (افضل مؤقت حاليا 5.5)
+getgenv().PlayAgain = true -- يتم اعاده تشغيل لعبه او بلي اقين لما تفوز بل لعبه
+--
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/autoexec-Script-game/test/STOCK-UP-HORROR"))()
+]]
 workspace.FallenPartsDestroyHeight = -50000
 local placeId = game.PlaceId
 
@@ -27,7 +36,7 @@ local ohTable1 = {
 	["Map"] = 1,
 	["Mode"] = 1,
 	["FriendsOnly"] = false,
-	["MaxPlayers"] = 8
+	["MaxPlayers"] = MaxPlayers
 }
 
 game:GetService("ReplicatedStorage").Events.PartyLeader:FireServer(ohTable1)
@@ -53,8 +62,11 @@ game:GetService("ReplicatedStorage").Events.PartyLeader:FireServer(ohTable1)
 end)
 
 
+if getgenv().AutoFarm == true then
+
+
 elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 then
-wait(5.4)
+wait(runFarm)
 local boxName = "box"
 local boxes = workspace.Interactables.Boxes
 
@@ -116,7 +128,10 @@ wait(.3)
 game:GetService("ReplicatedStorage").Events.DropTool:FireServer()
 wait(3)
 -- اعاده تشغيل لعبه او بلي اقين
+if getgenv().PlayAgain == true then
 game:GetService("ReplicatedStorage").Events.PlayAgain:FireServer()
+end
+end
 end
 
 else
