@@ -1,7 +1,9 @@
 --[[
--- Lobby
+-- Settings Lobby
 getgenv().MaxPlayers = 8 -- تعديل رقم عدد لاعبين يدخلون قيم (حاليا نفس قيم باس)
--- AutoFarm
+-- Settings playHorror
+getgenv().AutoRevive = true -- اخذ قيم باس Revive (تقريبا)
+-- Settings AutoFarm
 getgenv().AutoFarm = true -- تشغيل اوتو فارم اكتب true -- ايقاف اوتو افارم false
 getgenv().runFarm = 5.5 -- سرعه تشغيل سكربت ل اوتو فارم (افضل مؤقت حاليا 5.5)
 getgenv().PlayAgain = true -- يتم اعاده تشغيل لعبه او بلي اقين لما تفوز بل لعبه
@@ -65,6 +67,25 @@ end)
 
 elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 then
 
+-- AutoRevive
+if getgenv().AutoRevive == true then
+
+-- حذف ال Jumpscare
+game:GetService("ReplicatedStorage").Events.Jumpscare:Destroy()
+
+-- يتم نقلك الى السبون
+local playerCagePart = workspace.Interactables.PlayerCage.Cage.Part
+
+
+local function onTouchEnded()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.SpawnLocation.CFrame
+end
+
+playerCagePart.TouchEnded:Connect(onTouchEnded)
+--
+end
+
+-- اوتو فارم
 if getgenv().AutoFarm == true then
 
 wait(runFarm)
@@ -73,7 +94,7 @@ local boxes = workspace.Interactables.Boxes
 
 if boxes:FindFirstChild(boxName) then -- اذا كان يوجد Box يتم تفعيله
 
-workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Boxes.box.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactables.Boxes.box.CFrame
 wait(.2)
     fireproximityprompt(workspace.Interactables.Boxes.box.ProximityPrompt)
 -- تحويل البوكس 0 الى عدد لا محدود
@@ -90,7 +111,7 @@ game:GetService("ReplicatedStorage").Events.Stocking:FireServer(ohInstance1, ohN
 else
 end
 --
-workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Extraction.Area.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactables.Extraction.Area.CFrame
 
 wait(.3)
 -- رمي الغرض
@@ -101,11 +122,11 @@ wait(3)
 game:GetService("ReplicatedStorage").Events.PlayAgain:FireServer()
 else -- اذا لا يوجد Box يتم تفعيله 
 
-workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.SpawnBoxes.sign.spawn.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactables.SpawnBoxes.sign.spawn.CFrame
 wait(.2)
    fireproximityprompt(workspace.Interactables.SpawnBoxes.sign.signpart.ProximityPrompt)
 wait(.2)
-workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Boxes.box.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactables.Boxes.box.CFrame
 wait(.2)
     fireproximityprompt(workspace.Interactables.Boxes.box.ProximityPrompt)
 -- تحويل البوكس 0 الى عدد لا محدود
@@ -122,7 +143,7 @@ game:GetService("ReplicatedStorage").Events.Stocking:FireServer(ohInstance1, ohN
 else
 end
 --
-workspace.eaeffawwawawagag3.HumanoidRootPart.CFrame = workspace.Interactables.Extraction.Area.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactables.Extraction.Area.CFrame
 
 wait(.3)
 -- رمي الغرض
