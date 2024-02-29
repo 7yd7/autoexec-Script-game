@@ -68,7 +68,19 @@ end)
 elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 then
 
 -- AutoRevive
+
 if getgenv().AutoRevive == true then
+
+-- رساله
+
+game.StarterGui:SetCore("SendNotification",  {
+    Title = "تم حصول قيم باس Revive (Auto)";
+    Text = "By : 7yd7";
+    Icon = "";
+    Duration = 5;
+    Callback = NotificationBindable;
+   })
+
 
 -- حذف ال Jumpscare
 game:GetService("ReplicatedStorage").Events.Jumpscare:Destroy()
