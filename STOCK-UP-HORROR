@@ -3,6 +3,7 @@
 getgenv().MaxPlayers = 8 -- تعديل رقم عدد لاعبين يدخلون قيم (حاليا نفس قيم باس)
 -- Settings playHorror
 getgenv().AutoRevive = true -- اخذ قيم باس Revive (تقريبا)
+getgenv().AutoMaxBox = true -- تفليل البوكس اول ما يمسك البوكس لاعب شخصي
 -- Settings AutoFarm
 getgenv().AutoFarm = true -- تشغيل اوتو فارم اكتب true -- ايقاف اوتو افارم false
 getgenv().runFarm = 5.5 -- سرعه تشغيل سكربت ل اوتو فارم (افضل مؤقت حاليا 5.5)
@@ -66,6 +67,45 @@ end)
 
 
 elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 then
+
+-- تفليل البوكس تلقاءي
+    coroutine.wrap(function()
+        while wait(.5) do
+          if getgenv().AutoMaxBox == true then
+            local player = game.Players.LocalPlayer.Character
+
+            local function findMedkit()
+                for _, tool in pairs(player:GetChildren()) do
+                    if tool.Name == "box" then
+                        return true
+                    end
+                end
+            
+                return false
+            end
+            
+            local hasMedkit = findMedkit()
+            
+                if hasMedkit then
+            
+            local shelves = workspace.Interactables.Shelves:GetChildren()
+            if #shelves > 0 then
+                local randomShelf = shelves[math.random(1, #shelves)]
+                local shelfName = randomShelf.Name
+            local ohInstance1 = workspace.Interactables.Shelves[shelfName]
+            local ohNumber2 = 20
+            local ohNumber3 = 0
+            
+            game:GetService("ReplicatedStorage").Events.Stocking:FireServer(ohInstance1, ohNumber2, ohNumber3)
+            else
+            end
+                else
+            
+                end
+            
+      end   
+    end
+end)()
 
 -- AutoRevive
 
