@@ -2,7 +2,6 @@
 -- Settings Lobby
 getgenv().MaxPlayers = 8 -- تعديل رقم عدد لاعبين يدخلون قيم (حاليا نفس قيم باس)
 -- Settings playHorror
-getgenv().AutoRevive = true -- اخذ قيم باس Revive (تقريبا)
 getgenv().AutoMaxBox = true -- تفليل البوكس اول ما يمسك البوكس لاعب شخصي
 getgenv().FillBoxNumber = 20 -- تعبيه البوكس 20 يتم تشغيله ب AutoMaxBox
 -- Settings AutoFarm
@@ -67,7 +66,7 @@ end)
 
 
 
-elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 then
+elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 16256372659 or placeId == 16008841217 or placeId == 16192201352 or placeId == 16228316919 or placeId == 16271446607 or placeId == 16299951339 or placeId == 16303465041 or placeId == 16477400834 or placeId == 16583841950 or placeId == 16584009082 then
 
 -- تفليل البوكس تلقاءي
     coroutine.wrap(function()
@@ -107,7 +106,8 @@ elseif placeId == 16091737112 or placeId == 16256302316 or placeId == 1625637265
       end   
     end
 end)()
-
+--[[
+    -- خربان
 -- AutoRevive
 
 if getgenv().AutoRevive == true then
@@ -137,6 +137,7 @@ end
 playerCagePart.TouchEnded:Connect(onTouchEnded)
 --
 end
+]]
 
 -- اوتو فارم
 if getgenv().AutoFarm == true then
